@@ -5,7 +5,18 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://araks-web-panel.onrender.com" // اگر فرانت دیپلوی شده
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
+// مهم برای preflight
+app.options("*", cors());
 app.use(express.json());
 
 // MongoDB Connection
