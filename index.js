@@ -10,11 +10,12 @@ app.use(
     origin: [
       "http://localhost:3000",
       "https://araks-web-panel.onrender.com",
+      "https://arax-website-front-dpbi.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-  })
+  }),
 );
 
 app.options(/.*/, cors()); // ← این مهمه
