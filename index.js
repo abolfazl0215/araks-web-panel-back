@@ -5,15 +5,17 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://araks-web-panel.onrender.com" // اگر فرانت دیپلوی شده
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://araks-web-panel.onrender.com", // اگر فرانت دیپلوی شده
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  }),
+);
 
 // مهم برای preflight
 app.options("*", cors());
@@ -439,6 +441,7 @@ app.get("/api/tours", async (req, res) => {
     const tours = await Tour.find();
     res.json(tours);
   } catch (error) {
+    console.log({ error });
     res.status(500).json({ message: error.message });
   }
 });
