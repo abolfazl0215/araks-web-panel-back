@@ -9,16 +9,16 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://araks-web-panel.onrender.com", // اگر فرانت دیپلوی شده
+      "https://araks-web-panel.onrender.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-  }),
+  })
 );
 
-// مهم برای preflight
-app.options("*", cors());
+app.options(/.*/, cors()); // ← این مهمه
+
 app.use(express.json());
 
 // MongoDB Connection
