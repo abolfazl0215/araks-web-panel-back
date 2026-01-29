@@ -12,6 +12,7 @@ app.use(
       "https://araks-web-panel.onrender.com",
       "https://arax-web-panel.vercel.app",
       "https://arax-website-front-dpbi.vercel.app",
+      "https://arax-website-front.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -104,8 +105,6 @@ const Stay = mongoose.model("StaysWebsite", staySchema);
 const Transfer = mongoose.model("TransfersWebsite", transferSchema);
 
 // ============== SEED DATABASE ROUTE ==============
-
-
 
 // ============== GET ALL DATA ROUTE ==============
 
