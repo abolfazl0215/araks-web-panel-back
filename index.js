@@ -9,6 +9,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "http://localhost:3001",
       "https://araks-web-panel.onrender.com",
       "https://arax-web-panel.vercel.app",
       "https://arax-website-front-dpbi.vercel.app",
