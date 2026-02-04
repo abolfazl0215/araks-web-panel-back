@@ -14,6 +14,7 @@ app.use(
       "https://arax-web-panel.vercel.app",
       "https://arax-website-front-dpbi.vercel.app",
       "https://arax-website-front.vercel.app",
+      "https://araksgroup.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -110,6 +111,10 @@ const Transfer = mongoose.model("TransfersWebsite", transferSchema);
 // ============== GET ALL DATA ROUTE ==============
 
 // Get all data (tours, stays, transfers)
+app.get("/", (req, res) => {
+  res.json({ status: "ok" });
+});
+
 app.get("/api/all", async (req, res) => {
   try {
     const tours = await Tour.find();
@@ -320,7 +325,7 @@ app.delete("/api/transfers/:id", async (req, res) => {
 });
 
 // Start Server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
